@@ -21,6 +21,7 @@ font pango:monospace 8
 
 # set background
 exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
+# exec_always swaybg -i ~/Pictures/wallpaper.jpg
 
 # start picom
 exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
@@ -32,9 +33,9 @@ exec --no-startup-id dex --autostart --environment i3
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# xss-lock grabs a logind suspend inhibit lock and will use betterlockscreen to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -60,7 +61,7 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+# tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec kitty
@@ -197,14 +198,17 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+p exec autorandr --change
+
 # Screenshots
 exec --no-startup-id flameshot
 bindsym Print exec flameshot gui
 
 # autolock
-exec --no-startup-id xautolock -corners -000 -time 10 -locker 'i3lock -c 000000' &
+# exec --no-startup-id xautolock -corners -000 -time 10 -locker 'i3lock -c 000000' &
 # bindsym Shift+$mod+l exec i3lock -c 000000 && systemctl suspend
-bindsym Control+$mod+l exec i3lock -c 000000
+# bindsym Control+$mod+l exec i3lock -c 000000
+bindsym Control+$mod+l exec betterlockscreen --lock
 
 # gruvbox colors
 set $bg #282828
@@ -217,6 +221,7 @@ set $aqua #689d68
 set $gray #a89984
 set $darkgray #1d2021
 set $lightgray #bdae93
+set $white #ffffff
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -235,7 +240,6 @@ bar {
           urgent_workspace     $red $red $bg
     }
 }
-
 
 # class                 border|backgr|text|indicator|child_border
 client.focused          $darkgray $darkgray $lightgray $purple $darkgray
