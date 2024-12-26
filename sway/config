@@ -24,6 +24,8 @@ set $menu wmenu-run
 output * bg ~/Pictures/wallpaper.jpg fill
 
 exec_always "pkill kanshi; kanshi"
+
+font pango:JetBrainsMono 11
 #
 # Example configuration:
 #
