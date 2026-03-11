@@ -8,4 +8,7 @@ if status is-interactive
     # termux alias
     # alias p='emacs ~/storage/shared/org/personal.org'
     # alias j='emacs ~/storage/shared/org/journal.org'
+
+    # default shell for mac
+    # /opt/homebrew/bin/brew shellenv | source
 end
