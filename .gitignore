@@ -1,0 +1,6 @@
+.DS_Store
+*.bak
+.zshrc.local
+# fish rewrites this constantly; it's machine state, not config
+fish/fish_variables
+fish/conf.d/local.fish
