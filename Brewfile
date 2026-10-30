@@ -36,7 +36,4 @@ brew "tmux"
 brew "yarn"
 # Binary releases of VS Code without MS branding/telemetry/licensing
 cask "vscodium"
-npm "corepack"
 npm "eas-cli"
-# Terminal
-cask "ghostty"
